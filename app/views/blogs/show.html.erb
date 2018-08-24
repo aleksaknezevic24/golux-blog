@@ -2,9 +2,11 @@
 
 <div class="drzac">
  <%= image_tag @blog.image.url(:medium), :style => "border-radius: 4%; right: 5px;" %>
-<p>
+ <div style="margin: 0 auto;">
+<p style="text-align: center;">
   <%= @blog.body.html_safe %>
 </p>
+</div>
 </div>
 <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); text-align: center;">
 <%br =0 %>

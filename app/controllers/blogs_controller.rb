@@ -79,6 +79,10 @@ include ApplicationHelper
     @blog.user_id = current_user.id
     @masthead_picture = 'bg_new_post'
 
+    if(@blog.status == 1)
+      BlogsMailer.send_published_post(@blog.title).deliver_now
+    end
+
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog created.' }
