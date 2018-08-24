@@ -1,0 +1,7 @@
+
+<% if user_signed_in? %>
+<%= render 'form', blog: @blog %>
+
+<%= link_to 'Back', blogs_path %> 
+   
+  <%end%>

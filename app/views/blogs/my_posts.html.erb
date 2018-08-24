@@ -1,0 +1,6 @@
+
+  <% @blogs.each do |blog| %>
+    <h2 style="text-align: center;"><%= blog.title %></p>
+    <%= blog.body %>
+    <p> <%=blog.user.full_name %> </p> <br>
+    <%end%>

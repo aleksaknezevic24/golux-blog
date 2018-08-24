@@ -1,0 +1,6 @@
+ <% if user_signed_in? %>
+      <% @comments.each do |comm| %>
+      <% if comm.blog_id == blog.id %>
+        <p><%= comm.user.email comm.text %> </p>
+    <%end%>  
+ // ovo ide u index.html.erb linija 21;   

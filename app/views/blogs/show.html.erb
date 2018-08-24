@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="drzac">
+ <%= image_tag @blog.image.url(:medium), :style => "border-radius: 4%; position: absolute; right: 5px;" %>
+<p>
+  <%= @blog.body.html_safe %>
+</p>
+</div>
+<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); text-align: center;">
+<%br =0 %>
+ <% @blog.favourites.each do |fav| %>
+      <% if user_signed_in? && (fav.blog_id == @blog.id) && (fav.user_id == current_user.id) &&
+        (fav.status == 'set')%>
+        <a href=<%= like_path(blog_id: @blog.id) %>>
+          <%= image_tag "like.jpg", width: "40px" %>
+        </a>
+        <%br = 1%>
+        <%end%>
+    <%end%>
+    <% if br != 1 && user_signed_in? %>
+       <a href=<%= unlike_path(blog_id: @blog.id) %>>
+          <%= image_tag "unlike.jpg", width: "40px" %>
+        </a>
+    <%end%>    
+    <% @blog.comments.each do |comm| %>
+      <% if comm.blog_id == @blog.id %>
+        <p style="text-align: left; margin-bottom: 10px; height: 40px;"> 
+        	<%if comm.user.image.file? %>
+        	<%= image_tag comm.user.image.url(:thumb), display: 'inline';%>
+        	<%end%>  
+        	<%= "#{comm.user.full_name}:  #{comm.text}" %>
+        </p>
+        <hr align="left" style=" border: 0; border-bottom: 1px dashed #ccc; background: #999; width: 42em; 
+        margin-top: 0px;  ">
+      <%end%>    
+    <%end%>
+    <%if user_signed_in? %>  
+      <%= form_with(model: @blog.comments.build, local: true) do |form| %>
+      <div class="form-group">
+        <div class="col-md-8">
+        <%= form.label :"Leave your comment:" %>
+        <%= form.text_area :text, class: "form-control" %>
+        </div>
+      </div>  
+      <div class="field">
+        <%= form.hidden_field :blog_id, value: @blog.id %>
+      </div>  
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  <% end %>
+	 <br>
+
+<%if user_signed_in? && (current_user.id == @blog.user_id || current_user.id == 1)%>
+<%= link_to 'Edit', edit_blog_path(@blog) %> 
+<%end%> 
+

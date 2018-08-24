@@ -1,0 +1,38 @@
+<%if !user_signed_in? || current_user.role_id != 1%>
+<script type="text/javascript">
+    window.location.href="/blogs"  // put your correct path in a string here
+  </script>
+<%end%>
+
+
+<form action="/update_admin" >
+	<div class="form-group">
+		<div class="col-md-8">
+  		<label for="sel1">Select list:</label>
+		<%= select_tag 'id', options_for_select(@users2.collect{ |u| [u.email, u.id] }),
+		 class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+    <div class="col-md-2">
+    	<input type="submit" name="submit" value="submit" class="btn btn-default btn-primary" >
+  	</div>
+	</div>
+</form>
+<br>
+
+<form action="/edit_privileges" >
+	<div class="form-group">
+		<div class="col-md-8">
+  		<label for="sel1">Select list:</label>
+		<%= select_tag 'id', options_for_select(@users1.collect{ |u| [u.email, u.id] }),
+		 class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+    <div class="col-md-2">
+    	<input type="submit" name="submit" value="submit" class="btn btn-default btn-primary" >
+  	</div>
+	</div>
+</form>
+

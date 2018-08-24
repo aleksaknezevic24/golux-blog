@@ -1,0 +1,26 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <% @blogs.each do |blog| %>
+        <div class="post-preview">
+          <a href= <%= blog_path(blog) %>>
+            <h2 class="post-title">
+              <%= blog.title %>
+            </h2>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#" onclick="return false;"><%= "#{blog.user.full_name}" %></a>
+            <%= "#{blog.created_at.strftime("%d %b. %Y")}" %>
+            </p>
+        </div>
+        <hr>
+      <% end %>
+      
+
+    </div>
+  </div>
+</div>
+
+<hr>

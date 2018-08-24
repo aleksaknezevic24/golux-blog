@@ -1,0 +1,44 @@
+ 
+<%= form_with(model: blog, local: true,multipart: true)  do |form| %>
+  <% if blog.errors.any? %>
+    <div id="error_explanation">
+      <h1><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h1>
+      <ul>
+      <% blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.cktext_area :body %>
+  </div>
+
+  <div class="field">
+   <%= form.label :category_id %>
+   <%= form.collection_select :category_id, Category.all, :id, :name %>
+ </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status, {}, 1, 0 %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

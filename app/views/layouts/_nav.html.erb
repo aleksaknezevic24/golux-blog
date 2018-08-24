@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-inverse fixed-top" id="mainNav" style=" min-height: 5em; ">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to('Home', root_url) %>
+            </li>
+            <li class="nav-item">
+              <%=  link_to('categories', all_categories_url)%>
+            </li>
+            <li class="nav-item">
+              <%= contact %>
+            </li>
+            <li class="nav-item">
+              <%= edit_profile %>
+            </li>
+            <li class="nav-item">
+              <%= privileges %>
+            </li>
+            <li class="nav-item">
+              <%= blog_status %>
+            </li>
+            <li class="nav-item">
+              <%= my_draft_posts %>
+            </li>
+            <li class="nav-item">
+              <%= new_post %>
+            </li>
+            <li class="nav-item">
+              <%= auth_buttons %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
