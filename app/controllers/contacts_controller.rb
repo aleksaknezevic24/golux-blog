@@ -8,9 +8,6 @@ class ContactsController < ApplicationController
 
   def send_published_post  
    @blog = Blog.find(params[:id])
-   p "*******************************************"
-   p @blog 
-   p "*******************************************"
   end
  
   def create

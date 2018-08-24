@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="drzac">
- <%= image_tag @blog.image.url(:medium), :style => "border-radius: 4%; position: absolute; right: 5px;" %>
+ <%= image_tag @blog.image.url(:medium), :style => "border-radius: 4%; right: 5px;" %>
 <p>
   <%= @blog.body.html_safe %>
 </p>
@@ -12,15 +12,19 @@
       <% if user_signed_in? && (fav.blog_id == @blog.id) && (fav.user_id == current_user.id) &&
         (fav.status == 'set')%>
         <a href=<%= like_path(blog_id: @blog.id) %>>
+           <br> 
           <%= image_tag "like.jpg", width: "40px" %>
         </a>
+        <br>  <br>
         <%br = 1%>
         <%end%>
     <%end%>
     <% if br != 1 && user_signed_in? %>
        <a href=<%= unlike_path(blog_id: @blog.id) %>>
+          <br>
           <%= image_tag "unlike.jpg", width: "40px" %>
         </a>
+        <br> <br>
     <%end%>    
     <% @blog.comments.each do |comm| %>
       <% if comm.blog_id == @blog.id %>
