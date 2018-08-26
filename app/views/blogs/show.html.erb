@@ -30,7 +30,7 @@
     <%end%>    
     <% @blog.comments.each do |comm| %>
       <% if comm.blog_id == @blog.id %>
-        <p style="text-align: left; margin-bottom: 10px; height: 40px;"> 
+        <p style="text-align: left; margin-bottom: 10px; height: 40px;" class="zasliku"> 
         	<%if comm.user.image.file? %>
         	<%= image_tag comm.user.image.url(:thumb), display: 'inline';%>
         	<%end%>  

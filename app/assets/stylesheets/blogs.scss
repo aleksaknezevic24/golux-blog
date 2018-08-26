@@ -43,8 +43,15 @@ a {
 
 .drzac img {
   display: inline;
+
+}
+.zasliku img{
+  height: 30px
 }
 
+.zasliku img{
+  height: 30px
+}
 a:focus, a:hover {
   color: #0085A1;
 }
@@ -144,6 +151,10 @@ img::-moz-selection {
 
 .drzac img {
   display: inline;
+  
+}
+.zasliku img{
+  height: 30px
 }
 
 
@@ -244,6 +255,9 @@ header.masthead .site-heading {
   display: block;
   margin: 0 auto;
   position: relative;
+}
+.zasliku img{
+  height: 30px
 }
 }
 
@@ -373,6 +387,9 @@ header.masthead .post-heading .meta a {
   margin: 0 auto;
   position: relative;
 }
+.zasliku img{
+  height: 30px
+}
 }
 .floating-label-form-group {
   font-size: 13px;
@@ -402,6 +419,9 @@ header.masthead .post-heading .meta a {
   margin: 0 auto;
   position: relative;
 
+}
+.zasliku img{
+  height: 30px
 }
 }
 
@@ -530,3 +550,7 @@ footer .copyright {
     background-size: cover;
 }
 
+.label-medium {
+  ertical-align: super;
+  font-size: medium;
+}

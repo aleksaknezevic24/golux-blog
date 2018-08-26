@@ -15,7 +15,12 @@
             <%= "#{blog.created_at.strftime("%d %b. %Y")}" %>
             </p>
         </div>
+        <% if @last.id != blog.id %>
         <hr>
+        <%else %>
+        <br> 
+        <%end%>
+
       <% end %>
       
 
@@ -23,4 +28,3 @@
   </div>
 </div>
 
-<hr>

@@ -10,6 +10,7 @@ include ApplicationHelper
     @masthead_picture = 'bg_index'
     @head_title = "Life station"
     @head_subtitle = "where your thoughts go"
+    @last = Blog.last
   end
 
   
